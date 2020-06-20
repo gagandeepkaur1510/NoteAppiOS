@@ -9,23 +9,31 @@
 /* Begin PBXBuildFile section */
 		044273DF249E7EAE00EE4020 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044273DE249E7EAE00EE4020 /* AppDelegate.swift */; };
 		044273E1249E7EAE00EE4020 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044273E0249E7EAE00EE4020 /* SceneDelegate.swift */; };
-		044273E3249E7EAE00EE4020 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044273E2249E7EAE00EE4020 /* ViewController.swift */; };
+		044273E3249E7EAE00EE4020 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044273E2249E7EAE00EE4020 /* CategoryViewController.swift */; };
 		044273E6249E7EAE00EE4020 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044273E4249E7EAE00EE4020 /* Main.storyboard */; };
 		044273E9249E7EAE00EE4020 /* NoteApp_GVA_112_368_344.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 044273E7249E7EAE00EE4020 /* NoteApp_GVA_112_368_344.xcdatamodeld */; };
 		044273EB249E7EB100EE4020 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 044273EA249E7EB100EE4020 /* Assets.xcassets */; };
 		044273EE249E7EB100EE4020 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 044273EC249E7EB100EE4020 /* LaunchScreen.storyboard */; };
+		044273F6249E7F1900EE4020 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044273F5249E7F1900EE4020 /* MapViewController.swift */; };
+		044273F8249E7F2B00EE4020 /* NoteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044273F7249E7F2B00EE4020 /* NoteViewController.swift */; };
+		044273FA249E7F3F00EE4020 /* AddEditNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044273F9249E7F3F00EE4020 /* AddEditNotesViewController.swift */; };
+		044273FC249E7F4E00EE4020 /* AudioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044273FB249E7F4E00EE4020 /* AudioViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		044273DB249E7EAE00EE4020 /* NoteApp_GVA_112_368_344.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NoteApp_GVA_112_368_344.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		044273DE249E7EAE00EE4020 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		044273E0249E7EAE00EE4020 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		044273E2249E7EAE00EE4020 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		044273E2249E7EAE00EE4020 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		044273E5249E7EAE00EE4020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		044273E8249E7EAE00EE4020 /* NoteApp_GVA_112_368_344.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = NoteApp_GVA_112_368_344.xcdatamodel; sourceTree = "<group>"; };
 		044273EA249E7EB100EE4020 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		044273ED249E7EB100EE4020 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		044273EF249E7EB100EE4020 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		044273F5249E7F1900EE4020 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		044273F7249E7F2B00EE4020 /* NoteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteViewController.swift; sourceTree = "<group>"; };
+		044273F9249E7F3F00EE4020 /* AddEditNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditNotesViewController.swift; sourceTree = "<group>"; };
+		044273FB249E7F4E00EE4020 /* AudioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,12 +68,16 @@
 			children = (
 				044273DE249E7EAE00EE4020 /* AppDelegate.swift */,
 				044273E0249E7EAE00EE4020 /* SceneDelegate.swift */,
-				044273E2249E7EAE00EE4020 /* ViewController.swift */,
+				044273E2249E7EAE00EE4020 /* CategoryViewController.swift */,
 				044273E4249E7EAE00EE4020 /* Main.storyboard */,
 				044273EA249E7EB100EE4020 /* Assets.xcassets */,
 				044273EC249E7EB100EE4020 /* LaunchScreen.storyboard */,
 				044273EF249E7EB100EE4020 /* Info.plist */,
 				044273E7249E7EAE00EE4020 /* NoteApp_GVA_112_368_344.xcdatamodeld */,
+				044273F5249E7F1900EE4020 /* MapViewController.swift */,
+				044273F7249E7F2B00EE4020 /* NoteViewController.swift */,
+				044273F9249E7F3F00EE4020 /* AddEditNotesViewController.swift */,
+				044273FB249E7F4E00EE4020 /* AudioViewController.swift */,
 			);
 			path = NoteApp_GVA_112_368_344;
 			sourceTree = "<group>";
@@ -141,9 +153,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				044273E3249E7EAE00EE4020 /* ViewController.swift in Sources */,
+				044273FA249E7F3F00EE4020 /* AddEditNotesViewController.swift in Sources */,
+				044273E3249E7EAE00EE4020 /* CategoryViewController.swift in Sources */,
 				044273E9249E7EAE00EE4020 /* NoteApp_GVA_112_368_344.xcdatamodeld in Sources */,
 				044273DF249E7EAE00EE4020 /* AppDelegate.swift in Sources */,
+				044273F6249E7F1900EE4020 /* MapViewController.swift in Sources */,
+				044273FC249E7F4E00EE4020 /* AudioViewController.swift in Sources */,
+				044273F8249E7F2B00EE4020 /* NoteViewController.swift in Sources */,
 				044273E1249E7EAE00EE4020 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
