@@ -9,12 +9,30 @@
 import UIKit
 import AVFoundation
 
-class AudioViewController: UIViewController {
+class AudioViewController:UIViewController {
+    
+    //Outlets
+    @IBOutlet var playBtn: UIButton!
+    @IBOutlet var recordBtn: UIButton!
+    
+    //Actions
+    @IBAction func record(sender: UIButton) {
+    }
+    
+    @IBAction func recordPlayAudio(sender: UIButton) {
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
     }
+}
 
+// Extensions of Audio Player
+extension AudioViewController:AVAudioPlayerDelegate, AVAudioRecorderDelegate{
+    func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
+    }
+    
+    func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {
+    }
 }

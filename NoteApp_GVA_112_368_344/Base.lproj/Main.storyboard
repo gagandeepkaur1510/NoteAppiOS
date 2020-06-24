@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Pzy-YA-0IQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4Z1-vj-CDm">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -159,6 +159,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ey8-Ua-qQ7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1901.449275362319" y="122.54464285714285"/>
+        </scene>
+        <!--Audio View Controller-->
+        <scene sceneID="wHY-Eb-NhE">
+            <objects>
+                <viewController storyboardIdentifier="AudioViewController" id="4Z1-vj-CDm" customClass="AudioViewController" customModule="NoteApp_GVA_112_368_344" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ikh-5X-yMV">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="gAj-FX-Nbw">
+                                <rect key="frame" x="10" y="54" width="394" height="70"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="caK-Jm-dB1">
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="30"/>
+                                        <state key="normal" title="Record">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="recordWithSender:" destination="4Z1-vj-CDm" eventType="touchUpInside" id="hPg-Lw-3A7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MIy-4j-V9G">
+                                        <rect key="frame" x="0.0" y="40" width="394" height="30"/>
+                                        <state key="normal" title="Play">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="recordPlayAudioWithSender:" destination="4Z1-vj-CDm" eventType="touchUpInside" id="hgY-X9-Fpo"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="gAj-FX-Nbw" firstAttribute="leading" secondItem="NJu-b1-zON" secondAttribute="leading" constant="10" id="VoK-Ul-9hn"/>
+                            <constraint firstItem="gAj-FX-Nbw" firstAttribute="top" secondItem="NJu-b1-zON" secondAttribute="top" constant="10" id="iat-Gb-wmg"/>
+                            <constraint firstItem="NJu-b1-zON" firstAttribute="trailing" secondItem="gAj-FX-Nbw" secondAttribute="trailing" constant="10" id="ycK-FJ-bdw"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="NJu-b1-zON"/>
+                    </view>
+                    <connections>
+                        <outlet property="playBtn" destination="MIy-4j-V9G" id="xBS-YO-l6j"/>
+                        <outlet property="recordBtn" destination="caK-Jm-dB1" id="jYX-vz-ZS9"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="at1-Qp-62J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3542" y="118"/>
         </scene>
     </scenes>
 </document>
