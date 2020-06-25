@@ -186,7 +186,7 @@
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
-                                            <action selector="recordPlayAudioWithSender:" destination="4Z1-vj-CDm" eventType="touchUpInside" id="hgY-X9-Fpo"/>
+                                            <action selector="recordPlayAudioWithSender:" destination="4Z1-vj-CDm" eventType="touchUpInside" id="4Ol-fA-ByY"/>
                                         </connections>
                                     </button>
                                 </subviews>
