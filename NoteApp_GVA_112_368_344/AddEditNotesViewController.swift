@@ -7,24 +7,24 @@
 //
 
 import UIKit
+import AVFoundation
 
 class AddEditNotesViewController: UIViewController {
+    
+    var player:AVAudioPlayer!
+    var noteData = NoteData()
+    var editNoteData: NoteData?
+    var noteTableData = NoteViewController()
+    var categorydata = CategoryData()
+    var isEdit = false
+    var latitude1 = 0.0
+    var longitude1 = 0.0
+    var audiostring = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
