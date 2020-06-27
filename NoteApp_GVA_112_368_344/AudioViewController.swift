@@ -9,24 +9,39 @@
 import UIKit
 import AVFoundation
 
-class AudioViewController:UIViewController {
+
+// protocol used for sending data back
+protocol DataEnteredDelegateAudio {
+    func userDidEnterInformation(name:String)
+}
+
+class AudioViewController: UIViewController , AVAudioPlayerDelegate, AVAudioRecorderDelegate {
     
+    @IBOutlet var playBtn: UIButton!
+    @IBOutlet var recordBtn: UIButton!
+
+    var delegate: DataEnteredDelegateAudio?
     var audioTitle: String?
     var voiceRecorder : AVAudioRecorder!
     var audioPlayer : AVAudioPlayer!
     var recordingSession: AVAudioSession!
     var isPlaying = false
-    var fileName = "audio.m4a"
-    
+    var fileName = ""
+   
+    @IBOutlet weak var imageview: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        fileName = randomString(length: 10)
         
+        self.delegate?.userDidEnterInformation(name: fileName)
     }
     
-    
-    
+    func randomString(length: Int) -> String {
+      let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+      return String((0..<length).map{ _ in letters.randomElement()! })
+    }
     
     func setupRecorder(){
         
@@ -56,9 +71,6 @@ class AudioViewController:UIViewController {
         return documentDirectory
     }
     
-
-    
-    
     func setupPlayer() {
         let audioFilename = getCacheDirectory().appendingPathComponent(fileName)
         do {
@@ -77,57 +89,45 @@ class AudioViewController:UIViewController {
             print(error)
         }
     }
-
-
-
-
-    
-    
-
-    @IBOutlet var playBtn: UIButton!
-    @IBOutlet var recordBtn: UIButton!
-    
     
     @IBAction func record(sender: UIButton) {
         if sender.titleLabel?.text == "Record"{
-                    
+            
             setupRecorder()
             voiceRecorder.record()
             sender.setTitle("Stop", for: .normal)
             playBtn.isEnabled = false
-        
-
+           
         } else{
             voiceRecorder.stop()
-          
+      
             sender.setTitle("Record", for: .normal)
             playBtn.isEnabled = false
         }
-
     }
     
+   
+   
+       
     @IBAction func recordPlayAudio(sender: UIButton) {
-        
         if sender.titleLabel?.text == "Play" {
-              recordBtn.isEnabled = false
-              sender.setTitle("Stop", for: .normal)
-              setupPlayer()
-              audioPlayer.play()
-          }else{
-              audioPlayer.stop()
-              sender.setTitle("Play", for: .normal)
-              recordBtn.isEnabled = false
-          }
+            recordBtn.isEnabled = false
+            sender.setTitle("Stop", for: .normal)
+            setupPlayer()
+            audioPlayer.play()
+           
+            
+        }
+        else{
+            audioPlayer.stop()
+            sender.setTitle("Play", for: .normal)
+            recordBtn.isEnabled = false
+        }
+        
     }
-
-
     
-}
-
-extension AudioViewController:AVAudioPlayerDelegate, AVAudioRecorderDelegate{
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         playBtn.isEnabled = true
-
     }
     
     func audioPlayerDidFinishPlaying(_ player: AVAudioPlayer, successfully flag: Bool) {

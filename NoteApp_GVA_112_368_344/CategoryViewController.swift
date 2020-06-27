@@ -14,7 +14,7 @@ class CategoryViewController: UIViewController ,UITableViewDataSource,UITableVie
     let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     var categorydata = [CategoryData]()
     var filterCategory = [CategoryData]()
-
+    
     
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var tableview: UITableView!
@@ -44,12 +44,12 @@ class CategoryViewController: UIViewController ,UITableViewDataSource,UITableVie
         searchBar.delegate = self
     }
     override func viewWillAppear(_ animated: Bool) {
-          super.viewWillAppear(animated)
-          filterCategory = categorydata
-          guard (UIApplication.shared.delegate as? AppDelegate) != nil else {return}
-          
-          loadData()
-      }
+        super.viewWillAppear(animated)
+        filterCategory = categorydata
+        guard (UIApplication.shared.delegate as? AppDelegate) != nil else {return}
+        
+        loadData()
+    }
     // Functions
     func saveData(categoryName: String){
         guard (UIApplication.shared.delegate as? AppDelegate) != nil else { return}
@@ -89,14 +89,13 @@ class CategoryViewController: UIViewController ,UITableViewDataSource,UITableVie
         return cell
         
     }
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if let vc = self.storyboard?.instantiateViewController(withIdentifier: "NoteViewController") as? NoteViewController{
-            
-           
-            
-            if let navigator = self.navigationController{
-                navigator.pushViewController(vc , animated: true)
-                
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if (segue.identifier == "noteData") {
+            let destination = segue.destination as! NoteViewController
+            destination.modalPresentationStyle = .fullScreen
+            if let indexpath = tableview.indexPathForSelectedRow{
+                destination.categoryData = filterCategory[indexpath.row]
             }
         }
     }
@@ -117,3 +116,27 @@ extension CategoryViewController: UISearchBarDelegate{
         tableview.reloadData()
     }
 }
+
+
+// for toast msg
+
+extension UIViewController {
+    
+    func showToast(message : String, font: UIFont) {
+        
+        let toastLabel = UILabel(frame: CGRect(x: self.view.frame.size.width/2 - 75, y: self.view.frame.size.height-100, width: 150, height: 35))
+        toastLabel.backgroundColor = UIColor.black.withAlphaComponent(0.6)
+        toastLabel.textColor = UIColor.white
+        toastLabel.font = font
+        toastLabel.textAlignment = .center;
+        toastLabel.text = message
+        toastLabel.alpha = 1.0
+        toastLabel.layer.cornerRadius = 10;
+        toastLabel.clipsToBounds  =  true
+        self.view.addSubview(toastLabel)
+        UIView.animate(withDuration: 4.0, delay: 0.1, options: .curveEaseOut, animations: {
+            toastLabel.alpha = 0.0
+        }, completion: {(isCompleted) in
+            toastLabel.removeFromSuperview()
+        })
+    } }

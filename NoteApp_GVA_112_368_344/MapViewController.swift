@@ -7,24 +7,65 @@
 //
 
 import UIKit
+import MapKit
+import CoreLocation
+import CoreData
 
-class MapViewController: UIViewController {
+// protocol used for sending data back
+protocol DataEnteredDelegate {
+    func userDidEnterInformation(lat : Double,long:Double)
+}
 
-    override func viewDidLoad() {
+class MapViewController: UIViewController, CLLocationManagerDelegate {
+    
+    var lat  = 0.0
+    var long = 0.0
+    let locationManager = CLLocationManager()
+    var delegate: DataEnteredDelegate?
+    
+    
+    @IBOutlet weak var mapView: MKMapView!
+    
+    
+    override func viewDidLoad(){
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        // Ask for Authorisation from the User.
+        self.locationManager.requestAlwaysAuthorization()
+        
+        // For use in foreground
+        self.locationManager.requestWhenInUseAuthorization()
+        
+        if CLLocationManager.locationServicesEnabled() {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
+            locationManager.startUpdatingLocation()
+        }
+        delegate?.userDidEnterInformation(lat: lat, long: long)
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        guard let locValue: CLLocationCoordinate2D = manager.location?.coordinate else { return }
+        print("locations = \(locValue.latitude) \(locValue.longitude)")
+        lat = locValue.latitude
+        long = locValue.longitude
+        setPinOnMap()
     }
-    */
-
+    
+    
+    func setPinOnMap() {
+        
+        var locValue:CLLocationCoordinate2D = CLLocationCoordinate2D()
+        let annotation = MKPointAnnotation()
+        locValue.latitude = lat
+        locValue.longitude = long
+        annotation.coordinate = locValue
+        mapView!.isZoomEnabled = false
+        self.mapView!.showAnnotations(self.mapView!.annotations, animated: true)
+        mapView?.addAnnotation(annotation)
+        delegate?.userDidEnterInformation(lat: lat, long: long)
+    }
 }
+
+
